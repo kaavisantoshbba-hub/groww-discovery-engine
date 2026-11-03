@@ -9,7 +9,32 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// --- FULL v4 DATASET EMBEDDED ---
+// --- THE "NO-FAIL" STYLES ---
+const GlobalStyles = () => (
+  <style jsx global>{`
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #080808;
+      color: #F5F0E6;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .bg-premium-black { background-color: #080808; }
+    .bg-charcoal-surface { background-color: #11100D; }
+    .text-gold-primary { color: #D4AF62; }
+    .text-ivory-text { color: #F5F0E6; }
+    .text-muted-gold { color: #927342; }
+    .border-gold-primary { border-color: rgba(212, 175, 98, 0.2); }
+    .bg-gold-primary { background-color: #D4AF62; }
+    .bg-gold-champagne { background-color: #F1D18A; }
+    .bg-deep-gradient { background: linear-gradient(180deg, #0B0B0B 0%, #080808 100%); }
+    .shadow-gold-glow { box-shadow: 0 0 20px rgba(212, 175, 98, 0.1); }
+  `}</style>
+);
+
 const ALL_REVIEWS = [
   { no: "RD-1", source: "Reddit", text: "I requested to cancel my monthly SIPs around Jan 25, but the Feb 1 SIP was still active and the money got deducted...", relevance: "SIP-relevant", moment: "Wanting to pause/change/stop", reason: ["Unclear"], intent: "Get help or an answer", confidence: "High" },
   { no: "RD-4", source: "Reddit", text: "For the last 2–3 months, my monthly SIP... has been failing every time. I contacted Groww support, but they couldn't resolve the issue.", relevance: "SIP-relevant", moment: "Instalment due or payment attempt", reason: ["Autopay or mandate problem", "Support didn't help"], intent: "Get help or an answer", confidence: "High" },
@@ -53,6 +78,7 @@ export default function DiscoveryEngine() {
 
   return (
     <div className="min-h-screen bg-premium-black text-ivory-text font-sans flex overflow-hidden">
+      <GlobalStyles />
       {/* --- SIDEBAR --- */}
       <aside className="w-64 bg-charcoal-surface border-r border-gold-primary/10 flex flex-col">
         <div className="p-6 flex flex-col gap-2">
